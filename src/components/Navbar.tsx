@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { TbNotes } from "react-icons/tb";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
@@ -15,6 +16,7 @@ const Navbar = () => {
       content: "#smooth-content",
       smooth: 1.7,
       speed: 1.7,
+      smoothTouch: 0.1,
       effects: true,
       autoResize: true,
       ignoreMobileResize: true,
@@ -23,14 +25,14 @@ const Navbar = () => {
     smoother.scrollTop(0);
     smoother.paused(true);
 
-    let links = document.querySelectorAll(".header ul a");
+    let links = document.querySelectorAll(".header ul a[data-href]");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
+        e.preventDefault();
+        let elem = e.currentTarget as HTMLAnchorElement;
+        let section = elem.getAttribute("data-href");
+        if (section) {
           smoother.scrollTo(section, true, "top top");
         }
       });
@@ -43,16 +45,16 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          AM
+          KS
         </a>
         <a
-          href="https://www.linkedin.com/in/akashrmalhotra/"
+          href="https://www.linkedin.com/in/karampreet-singh-a8b108266"
           className="navbar-connect"
           data-cursor="disable"
           target="_blank"
           rel="noreferrer"
         >
-          linkedin.com/in/akashrmalhotra
+          linkedin.com/in/karampreet-singh-a8b108266
         </a>
         <ul>
           <li>
@@ -68,6 +70,19 @@ const Navbar = () => {
           <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
+            </a>
+          </li>
+          <li>
+            <a
+              className="navbar-resume"
+              href="/#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <HoverLinks text="RESUME" />
+              <span className="navbar-resume-icon">
+                <TbNotes />
+              </span>
             </a>
           </li>
         </ul>

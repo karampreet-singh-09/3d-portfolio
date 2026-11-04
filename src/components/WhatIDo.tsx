@@ -8,19 +8,25 @@ const WhatIDo = () => {
     containerRef.current[index] = el;
   };
   useEffect(() => {
-    if (ScrollTrigger.isTouch) {
-      containerRef.current.forEach((container) => {
+    const handlers: Array<{ el: HTMLDivElement; fn: () => void }> = [];
+    if (ScrollTrigger.isTouch || window.innerWidth <= 1024) {
+      containerRef.current.forEach((container, index) => {
         if (container) {
           container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
+          if (index === 0) {
+            container.classList.add("what-content-active");
+          } else {
+            container.classList.add("what-sibling");
+          }
+          const fn = () => handleClick(container);
+          container.addEventListener("click", fn);
+          handlers.push({ el: container, fn });
         }
       });
     }
     return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
+      handlers.forEach(({ el, fn }) => {
+        el.removeEventListener("click", fn);
       });
     };
   }, []);
@@ -158,7 +164,7 @@ function handleClick(container: HTMLDivElement) {
     const siblings = Array.from(container.parentElement.children);
 
     siblings.forEach((sibling) => {
-      if (sibling !== container) {
+      if (sibling !== container && sibling.classList.contains("what-content")) {
         sibling.classList.remove("what-content-active");
         sibling.classList.toggle("what-sibling");
       }

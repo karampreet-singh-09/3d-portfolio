@@ -13,6 +13,7 @@ export const handleTouchMove = (
   event: TouchEvent,
   setMousePosition: (x: number, y: number) => void
 ) => {
+  if (!event.touches || event.touches.length === 0) return;
   const mouseX = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
   const mouseY = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
   setMousePosition(mouseX, mouseY);
@@ -74,9 +75,7 @@ export const handleHeadRotation = (
       );
     }
   } else {
-    if (window.innerWidth > 1024) {
-      headBone.rotation.x = lerp(headBone.rotation.x, -0.4, 0.03);
-      headBone.rotation.y = lerp(headBone.rotation.y, -0.3, 0.03);
-    }
+    headBone.rotation.x = lerp(headBone.rotation.x, -0.4, 0.03);
+    headBone.rotation.y = lerp(headBone.rotation.y, -0.3, 0.03);
   }
 };

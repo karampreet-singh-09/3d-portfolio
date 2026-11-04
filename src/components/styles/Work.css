@@ -3,17 +3,17 @@
   position: relative;
   z-index: 1;
   background-color: var(--backgroundColor);
-  padding: 80px 0;
+  padding: clamp(30px, 5.5vw, 80px) 0;
 }
 
 .work-section h2 {
-  font-size: 70px;
+  font-size: clamp(22px, 4.5vw, 70px);
   font-weight: 500;
   margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: clamp(20px, 3.5vw, 50px);
 }
 
-.work-section h2>span {
+.work-section h2 > span {
   color: var(--accentColor);
 }
 
@@ -44,25 +44,26 @@
   min-width: 100%;
   flex-shrink: 0;
   box-sizing: border-box;
-  padding: 50px 0;
+  padding: clamp(18px, 3.5vw, 50px) 0;
 }
 
 .carousel-content {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 60px;
+  gap: clamp(14px, 4vw, 60px);
   width: 100%;
 }
 
 .carousel-info {
   flex: 1;
   display: flex;
-  gap: 30px;
+  gap: clamp(10px, 2vw, 30px);
   align-items: flex-start;
 }
 
 .carousel-number h3 {
-  font-size: 60px;
+  font-size: clamp(20px, 4vw, 60px);
   line-height: 1;
   margin: 0;
   font-weight: 600;
@@ -72,11 +73,11 @@
 .carousel-details {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: clamp(3px, 0.6vw, 8px);
 }
 
 .carousel-details h4 {
-  font-size: 28px;
+  font-size: clamp(11px, 2vw, 28px);
   font-weight: 500;
   margin: 0;
 }
@@ -85,15 +86,15 @@
   font-weight: 200;
   color: #adacac;
   margin: 0;
-  font-size: 16px;
+  font-size: clamp(8px, 1.1vw, 16px);
 }
 
 .carousel-tools {
-  margin-top: 16px;
+  margin-top: clamp(6px, 1.1vw, 16px);
 }
 
 .carousel-tools .tools-label {
-  font-size: 14px;
+  font-size: clamp(7px, 1vw, 14px);
   font-weight: 400;
   opacity: 0.6;
   text-transform: uppercase;
@@ -103,8 +104,8 @@
 .carousel-tools p {
   font-weight: 200;
   color: #adacac;
-  margin: 6px 0 0;
-  font-size: 15px;
+  margin: 4px 0 0;
+  font-size: clamp(8px, 1.05vw, 15px);
 }
 
 .carousel-image-wrapper {
@@ -123,13 +124,13 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #eae5ec;
-  width: 50px;
-  height: 50px;
+  width: clamp(26px, 3.5vw, 50px);
+  height: clamp(26px, 3.5vw, 50px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: clamp(13px, 1.6vw, 22px);
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
@@ -143,11 +144,11 @@
 }
 
 .carousel-arrow-left {
-  left: -70px;
+  left: clamp(-4vw, -4.5vw, -70px);
 }
 
 .carousel-arrow-right {
-  right: -70px;
+  right: clamp(-4vw, -4.5vw, -70px);
 }
 
 /* ── Dot Indicators ── */
@@ -155,7 +156,7 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 35px;
+  margin-top: clamp(15px, 2.5vw, 35px);
 }
 
 .carousel-dot {
@@ -196,13 +197,13 @@
   bottom: 10px;
   right: 10px;
   background-color: var(--backgroundColor);
-  width: 50px;
+  width: clamp(28px, 3.5vw, 50px);
   border-radius: 50px;
-  height: 50px;
+  height: clamp(28px, 3.5vw, 50px);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: clamp(14px, 1.8vw, 25px);
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
     inset 0px 0px 10px 0px #393939;
   transition: 0.3s;
@@ -229,103 +230,6 @@
 
 .work-image img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: clamp(110px, 28vw, 400px);
   border-radius: 8px;
-}
-
-/* ── Responsive ── */
-@media only screen and (max-width: 1600px) {
-  .carousel-arrow-left {
-    left: -60px;
-  }
-
-  .carousel-arrow-right {
-    right: -60px;
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  .work-section h2 {
-    font-size: 50px;
-  }
-
-  .carousel-details h4 {
-    font-size: 22px;
-  }
-
-  .carousel-number h3 {
-    font-size: 45px;
-  }
-
-  .carousel-content {
-    gap: 40px;
-  }
-
-  .carousel-arrow-left {
-    left: 10px;
-  }
-
-  .carousel-arrow-right {
-    right: 10px;
-  }
-}
-
-@media only screen and (max-width: 1025px) {
-  .carousel-content {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .carousel-info {
-    width: 100%;
-  }
-
-  .carousel-image-wrapper {
-    width: 100%;
-  }
-
-  .carousel-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-
-  .carousel-arrow-left {
-    left: 10px;
-  }
-
-  .carousel-arrow-right {
-    right: 10px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .work-section {
-    padding: 50px 0;
-  }
-
-  .work-section h2 {
-    font-size: 40px;
-    margin-bottom: 30px;
-  }
-
-  .carousel-number h3 {
-    font-size: 35px;
-  }
-
-  .carousel-details h4 {
-    font-size: 20px;
-  }
-
-  .carousel-content {
-    gap: 20px;
-  }
-
-  .carousel-slide {
-    padding: 30px 0;
-  }
-
-  .work-image img {
-    max-height: 250px;
-  }
 }

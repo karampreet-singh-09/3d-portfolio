@@ -3,7 +3,8 @@
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
-  padding: 20px 0px;
+  align-items: center;
+  padding: clamp(14px, 2.4vw, 35px) 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
@@ -13,71 +14,53 @@
   z-index: 9999;
 }
 .header ul {
-  font-size: 12px;
+  font-size: clamp(11px, 1.2vw, 16px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   list-style: none;
-  column-gap: 40px;
+  column-gap: clamp(12px, 3vw, 56px);
   row-gap: 8px;
-  align-items: end;
+  align-items: center;
 }
 .header ul li {
   margin-left: 0px;
   letter-spacing: 1px;
-  color: #ccc;
+  color: #eae5ec;
   font-weight: 600;
   cursor: pointer;
+}
+.navbar-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accentColor);
+}
+.navbar-resume-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(13px, 1.4vw, 19px);
+  color: var(--accentColor);
 }
 .navbar-connect {
   position: absolute;
   display: none;
-  left: 50%;
+  left: 38%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 15px;
+  font-size: clamp(12px, 1vw, 15px);
   letter-spacing: 1px;
   font-weight: 500;
+  white-space: nowrap;
 }
 .navbar-title {
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(14px, 1.25vw, 18px);
   letter-spacing: 0.2px;
 }
-@media only screen and (min-width: 500px) {
-  .header {
-    padding: 20px 0px;
-  }
-  .header ul {
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
-  }
-  .header ul li {
-    color: #eae5ec;
-  }
-  .navbar-title {
-    font-size: 16px;
-  }
-}
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1200px) {
   .navbar-connect {
     display: block;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .header {
-    padding: 35px 0px;
-  }
-  .header ul {
-    column-gap: 80px;
-    font-size: 16px;
-  }
-  .navbar-connect {
-    font-size: 16px;
-  }
-  .navbar-title {
-    font-size: 18px;
   }
 }

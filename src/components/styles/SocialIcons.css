@@ -6,16 +6,18 @@
   z-index: 99;
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: none;
 }
 .social-icons {
   position: absolute;
-  left: -20px;
-  bottom: 20px;
-  display: none;
+  left: clamp(-10px, -1.2vw, -20px);
+  bottom: clamp(10px, 1.5vw, 20px);
+  display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: clamp(6px, 1.4vw, 20px);
   z-index: 999;
-  padding: 10px;
+  padding: clamp(4px, 0.7vw, 10px);
+  pointer-events: auto;
 }
 .social-icons:hover {
   transition: 0.3s;
@@ -23,11 +25,10 @@
 }
 .social-icons a:hover {
   color: var(--backgroundColor);
-  /* transform: scale(1.2); */
 }
 .social-icons span {
-  width: 50px;
-  height: 50px;
+  width: clamp(26px, 3.5vw, 50px);
+  height: clamp(26px, 3.5vw, 50px);
   position: relative;
   display: flex;
 }
@@ -39,7 +40,7 @@
   top: var(--siTop, 50%);
   transform: translate(-50%, -50%);
   display: flex;
-  font-size: 23px;
+  font-size: clamp(14px, 2vw, 28px);
   will-change: left, top;
   transition: transform 0.3s ease-out;
 }
@@ -48,27 +49,28 @@
   z-index: 99;
   display: flex;
   gap: 5px;
-  bottom: 40px;
+  bottom: clamp(16px, 2.8vw, 40px);
   right: 0;
   width: auto;
   text-wrap: nowrap;
-  letter-spacing: 4px;
-  font-size: 15px;
-  line-height: 15px;
+  letter-spacing: clamp(1.5px, 0.3vw, 4px);
+  font-size: clamp(10px, 1.4vw, 20px);
+  line-height: clamp(10px, 1.4vw, 20px);
   font-weight: 600;
   color: #5e5e5e;
   cursor: pointer;
   transition: 0.5s;
-  transform-origin: left bottom;
-  transform: translateX(100%) rotateZ(-90deg);
+  transform: none;
+  pointer-events: auto;
 }
 .resume-button:hover {
   color: #fff;
 }
-div.resume-button span {
+div.resume-button span,
+a.resume-button span {
   color: #fff;
-  font-size: 17px;
-  margin-top: -1px;
+  font-size: clamp(12px, 1.6vw, 23px);
+  margin-top: -1.5px;
   display: flex;
   align-items: center;
 }
@@ -80,24 +82,4 @@ div.resume-button span {
   background-color: #ffffff;
   width: 100%;
   z-index: 99999;
-}
-@media only screen and (min-width: 900px) {
-  .social-icons {
-    display: flex;
-    gap: 20px;
-  }
-  .social-icons a {
-    font-size: 28px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .resume-button {
-    transform: none;
-    font-size: 20px;
-    line-height: 20px;
-  }
-  div.resume-button span {
-    font-size: 23px;
-    margin-top: -1.5px;
-  }
 }

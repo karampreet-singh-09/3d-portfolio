@@ -12,8 +12,11 @@ export default function handleResize(
   let canvas3d = canvasDiv.current.getBoundingClientRect();
   const width = canvas3d.width;
   const height = canvas3d.height;
+  const aspect = width / height;
   renderer.setSize(width, height);
-  camera.aspect = width / height;
+  camera.aspect = aspect;
+  camera.zoom =
+    aspect < 1.5 ? Math.max(0.48, 1.1 * (aspect / 1.35)) : 1.1;
   camera.updateProjectionMatrix();
   const workTrigger = ScrollTrigger.getById("work");
   ScrollTrigger.getAll().forEach((trigger) => {
@@ -23,4 +26,5 @@ export default function handleResize(
   });
   setCharTimeline(character, camera);
   setAllTimeline();
+  ScrollTrigger.refresh();
 }

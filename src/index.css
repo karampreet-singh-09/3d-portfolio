@@ -6,7 +6,6 @@
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
-  scroll-behavior: smooth;
   color-scheme: light dark;
   color: #eae5ec;
   background-color: var(--backgroundColor);
@@ -118,10 +117,34 @@ body {
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 120px;
+  top: 90px;
   left: 0;
+  margin: 0;
   font-weight: 400;
   text-transform: uppercase;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.techstack-subtitle {
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+  top: 195px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 10;
+  pointer-events: none;
+  color: #adacac;
+}
+
+.tech-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: pan-y !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -131,7 +154,17 @@ body {
 }
 
 @media screen and (max-width: 900px) {
+  .techstack {
+    margin-bottom: -40px;
+  }
+
   .techstack h2 {
-    font-size: 40px;
+    font-size: 38px;
+    top: 60px;
+  }
+
+  .techstack-subtitle {
+    font-size: 14px;
+    top: 115px;
   }
 }

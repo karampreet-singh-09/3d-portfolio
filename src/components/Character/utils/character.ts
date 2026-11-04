@@ -45,6 +45,14 @@ const setCharacter = (
                   }
                 }
 
+                if (mesh.name.toLowerCase().includes("cap")) {
+                  mesh.visible = false;
+                }
+                
+                if (mesh.name.toLowerCase().includes("turban") || mesh.name.toLowerCase().includes("hair")) {
+                  mesh.visible = true;
+                }
+
                 child.castShadow = true;
                 child.receiveShadow = true;
                 mesh.frustumCulled = true;
@@ -56,7 +64,32 @@ const setCharacter = (
             character!.getObjectByName("footR")!.position.y = 3.36;
             character!.getObjectByName("footL")!.position.y = 3.36;
 
-            // Monitor scale is handled by GsapScroll.ts animations
+            // Add a Sikh Turban to the head
+            const headBone = character.getObjectByName("spine.006") || character.getObjectByName("spine006");
+            if (headBone && !character.getObjectByName("SikhTurban")) {
+              const turbanGroup = new THREE.Group();
+              turbanGroup.name = "SikhTurban";
+              
+              const blackMaterial = new THREE.MeshStandardMaterial({ 
+                color: new THREE.Color("#111111"),
+                roughness: 0.9,
+                metalness: 0.1,
+              });
+
+              // Simple Small Cylinder Turban
+              const turbanGeo = new THREE.CylinderGeometry(5, 5, 4, 32); 
+              const turbanMesh = new THREE.Mesh(turbanGeo, blackMaterial);
+              // Position it on top of the head
+              turbanMesh.position.set(0, 9, -1);
+              turbanGroup.add(turbanMesh);
+
+
+
+              turbanGroup.scale.set(0.25, 0.25, 0.25);
+              turbanGroup.position.set(0, -0.2, 0);
+
+              headBone.add(turbanGroup);
+            }
 
             dracoLoader.dispose();
           },
