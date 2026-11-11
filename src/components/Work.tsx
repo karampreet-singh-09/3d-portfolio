@@ -5,11 +5,11 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Anchor Custom",
+    title: "Anchor Customs",
     category: "Custom E-Commerce & Web Platform",
-    tools: "React, Node.js, Full-Stack Architecture",
+    tools: "JavaScript, React, Node.js, Vercel",
     image: "/images/sapphire.png",
-    link: "https://github.com/karampreet-singh-09",
+    link: "https://github.com/karampreet-singh-09/anchor-customs",
   },
   {
     title: "Restaurant Management System",
