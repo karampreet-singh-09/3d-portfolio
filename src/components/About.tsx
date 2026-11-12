@@ -6,7 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Motivated computer science undergraduate skilled in building machine learning models and web applications. Eager to apply my expertise in model development and front-end integration in a collaborative internship setting. Aspiring AI/ML engineer with strong foundations in Python, TensorFlow, and web development (React). Passionate about creating impactful, user-centric solutions; seeking an internship to deploy ML models through intuitive web applications and grow within a dynamic technical team.
+          Freelance Full-Stack Web Developer &amp; AI Engineer helping businesses, clinics, hospitals, hostels, and brands launch high-converting websites, custom e-commerce storefronts, and automated booking workflows. With 7+ live client deployments across healthcare, luxury photography, hospitality, automotive, and retail, I combine modern React/Node.js engineering with intelligent CRM &amp; workflow automation to turn visitor traffic into real bookings and sales.
         </p>
       </div>
     </div>

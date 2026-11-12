@@ -3,6 +3,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 interface Props {
   image: string;
+  fallbackImage?: string;
   alt?: string;
   video?: string;
   link?: string;
@@ -11,6 +12,8 @@ interface Props {
 const WorkImage = (props: Props) => {
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
+  const [imgSrc, setImgSrc] = useState(props.image);
+
   const handleMouseEnter = async () => {
     if (props.video) {
       setIsVideo(true);
@@ -29,14 +32,23 @@ const WorkImage = (props: Props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)}
         target="_blank"
+        rel="noreferrer"
         data-cursor={"disable"}
       >
         {props.link && (
-          <div className="work-link">
+          <div className="work-link" title="Open Live Website">
             <MdArrowOutward />
           </div>
         )}
-        <img src={props.image} alt={props.alt} />
+        <img
+          src={imgSrc}
+          alt={props.alt}
+          onError={() => {
+            if (props.fallbackImage && imgSrc !== props.fallbackImage) {
+              setImgSrc(props.fallbackImage);
+            }
+          }}
+        />
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
       </a>
     </div>

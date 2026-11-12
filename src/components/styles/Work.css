@@ -6,19 +6,75 @@
   padding: clamp(30px, 5.5vw, 80px) 0;
 }
 
+.work-header {
+  margin-bottom: clamp(18px, 3vw, 36px);
+}
+
 .work-section h2 {
-  font-size: clamp(22px, 4.5vw, 70px);
+  font-size: clamp(22px, 4.5vw, 64px);
   font-weight: 500;
   margin-top: 0;
-  margin-bottom: clamp(20px, 3.5vw, 50px);
+  margin-bottom: 10px;
 }
 
 .work-section h2 > span {
   color: var(--accentColor);
 }
 
+.work-subtitle {
+  color: #adacac;
+  font-weight: 300;
+  font-size: clamp(12px, 1.15vw, 17px);
+  margin: 0;
+  max-width: 720px;
+  line-height: 1.5;
+}
+
 .work-container {
   margin: auto;
+}
+
+/* ── Quick Project Selector Pills ── */
+.project-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(16px, 2.2vw, 28px);
+}
+
+.project-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  color: #cfcbd3;
+  font-size: clamp(11px, 0.95vw, 14px);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.project-pill-num {
+  color: var(--accentColor);
+  font-weight: 600;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+.project-pill:hover {
+  border-color: var(--accentColor);
+  color: #ffffff;
+  background: rgba(94, 234, 212, 0.08);
+}
+
+.project-pill-active {
+  background: rgba(94, 234, 212, 0.16);
+  border-color: var(--accentColor);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(94, 234, 212, 0.18);
 }
 
 /* ── Carousel ── */
@@ -44,26 +100,26 @@
   min-width: 100%;
   flex-shrink: 0;
   box-sizing: border-box;
-  padding: clamp(18px, 3.5vw, 50px) 0;
+  padding: clamp(20px, 3.5vw, 48px) 0;
 }
 
 .carousel-content {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: clamp(14px, 4vw, 60px);
+  gap: clamp(18px, 4vw, 56px);
   width: 100%;
 }
 
 .carousel-info {
-  flex: 1;
+  flex: 1.25;
   display: flex;
-  gap: clamp(10px, 2vw, 30px);
+  gap: clamp(12px, 2vw, 28px);
   align-items: flex-start;
 }
 
 .carousel-number h3 {
-  font-size: clamp(20px, 4vw, 60px);
+  font-size: clamp(22px, 4vw, 58px);
   line-height: 1;
   margin: 0;
   font-weight: 600;
@@ -73,43 +129,135 @@
 .carousel-details {
   display: flex;
   flex-direction: column;
-  gap: clamp(3px, 0.6vw, 8px);
+  gap: clamp(4px, 0.65vw, 10px);
+}
+
+.client-badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: clamp(10px, 0.85vw, 12px);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--accentColor);
+  background: rgba(94, 234, 212, 0.1);
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 500;
 }
 
 .carousel-details h4 {
-  font-size: clamp(11px, 2vw, 28px);
-  font-weight: 500;
-  margin: 0;
+  font-size: clamp(16px, 2.2vw, 32px);
+  font-weight: 600;
+  margin: 2px 0 0;
 }
 
 .carousel-category {
-  font-weight: 200;
-  color: #adacac;
+  font-weight: 300;
+  color: #cfcbd3;
   margin: 0;
-  font-size: clamp(8px, 1.1vw, 16px);
+  font-size: clamp(12px, 1.1vw, 16px);
+}
+
+/* ── Case Study Block ── */
+.case-study-box {
+  margin-top: clamp(8px, 1.1vw, 14px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(10px, 1.3vw, 16px);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-study-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.case-study-label {
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  color: var(--accentColor);
+}
+
+.case-study-item p {
+  margin: 0;
+  font-size: clamp(11px, 0.98vw, 14px);
+  line-height: 1.5;
+  color: #d3cfd7;
+  font-weight: 300;
 }
 
 .carousel-tools {
-  margin-top: clamp(6px, 1.1vw, 16px);
+  margin-top: clamp(6px, 0.9vw, 12px);
 }
 
 .carousel-tools .tools-label {
-  font-size: clamp(7px, 1vw, 14px);
-  font-weight: 400;
-  opacity: 0.6;
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 500;
+  opacity: 0.65;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .carousel-tools p {
-  font-weight: 200;
+  font-weight: 300;
   color: #adacac;
-  margin: 4px 0 0;
-  font-size: clamp(8px, 1.05vw, 15px);
+  margin: 3px 0 0;
+  font-size: clamp(11px, 0.98vw, 14px);
+}
+
+/* ── Live Project Action Buttons ── */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(10px, 1.3vw, 18px);
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: clamp(11px, 0.95vw, 14px);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.project-btn-primary {
+  background: var(--accentColor);
+  color: #0b080c;
+  font-weight: 600;
+}
+
+.project-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(94, 234, 212, 0.35);
+  color: #0b080c;
+}
+
+.project-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #eae5ec;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-btn-secondary:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  background: rgba(94, 234, 212, 0.08);
 }
 
 .carousel-image-wrapper {
-  flex: 1;
+  flex: 0.95;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,7 +329,7 @@
   box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
 }
 
-/* ── Work Image (reused) ── */
+/* ── Work Image ── */
 .work-image {
   display: flex;
   width: 100%;
@@ -190,20 +338,24 @@
 
 .work-image-in {
   position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .work-link {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 12px;
+  right: 12px;
   background-color: var(--backgroundColor);
-  width: clamp(28px, 3.5vw, 50px);
+  width: clamp(32px, 3.5vw, 50px);
   border-radius: 50px;
-  height: clamp(28px, 3.5vw, 50px);
+  height: clamp(32px, 3.5vw, 50px);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: clamp(14px, 1.8vw, 25px);
+  font-size: clamp(16px, 1.8vw, 25px);
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
     inset 0px 0px 10px 0px #393939;
   transition: 0.3s;
@@ -230,6 +382,25 @@
 
 .work-image img {
   max-width: 100%;
-  max-height: clamp(110px, 28vw, 400px);
-  border-radius: 8px;
+  max-height: clamp(180px, 28vw, 420px);
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ── Responsive Stack on Mobile / Tablet ── */
+@media only screen and (max-width: 900px) {
+  .carousel-content {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .carousel-info {
+    gap: 12px;
+  }
+
+  .work-image img {
+    max-height: 240px;
+    width: 100%;
+  }
 }

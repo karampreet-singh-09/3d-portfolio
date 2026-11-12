@@ -1,36 +1,151 @@
 import { useState, useCallback, useRef } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
 
-const projects = [
+interface ProjectItem {
+  title: string;
+  clientType: string;
+  category: string;
+  tools: string;
+  image: string;
+  fallbackImage: string;
+  link: string;
+  secondaryLink?: {
+    label: string;
+    url: string;
+  };
+  caseStudy: {
+    challenge: string;
+    solution: string;
+    impact: string;
+  };
+}
+
+const projects: ProjectItem[] = [
   {
     title: "Anchor Customs",
-    category: "Custom E-Commerce & Web Platform",
-    tools: "JavaScript, React, Node.js, Vercel",
+    clientType: "Freelance Client • Custom E-Commerce",
+    category: "Bespoke Personalized Gifts & E-Commerce Storefront",
+    tools: "React, Node.js, Custom Product Configurator, E-Commerce Checkout, Vercel",
     image: "/images/sapphire.png",
-    link: "https://github.com/karampreet-singh-09/anchor-customs",
+    fallbackImage: "/images/sapphire.png",
+    link: "https://anchorcustoms.in",
+    caseStudy: {
+      challenge:
+        "Anchor Customs needed a high-converting online storefront to sell personalized physical gifts—custom magazines, frames, hampers, calendars, scrapbooks, and bouquets—where emotional storytelling and seamless customization drive every purchase.",
+      solution:
+        "Engineered a fast, mobile-first e-commerce platform (anchorcustoms.in) with curated category showcases, interactive product personalization workflows, smooth cart management, and brand-aligned visual storytelling ('Making people cry — happy tears only').",
+      impact:
+        "Established a flagship production domain that streamlined custom order intake, elevated brand trust, and turned social media traffic into direct online sales.",
+    },
   },
   {
-    title: "Restaurant Management System",
-    category: "Full Stack Web Application",
-    tools: "MERN Stack, Real-time Updates",
-    image: "/images/callhq.png",
-    link: "https://github.com/karampreet-singh-09",
+    title: "Sahu Photography",
+    clientType: "Freelance Client • Luxury Wedding Studio",
+    category: "Royal Wedding Photography & Cinematic Films Portfolio",
+    tools: "React, Responsive Media Gallery, Smooth Animations, Lead Capture, Vercel",
+    image: "https://sahu-creations.vercel.app/images/wedding_11_1780780846106.webp",
+    fallbackImage: "/images/Maxlife.png",
+    link: "https://sahu-creations.vercel.app",
+    caseStudy: {
+      challenge:
+        "Sahu Creations required a luxury digital portfolio capable of showcasing high-resolution wedding, Haldi, candid, and pre-wedding cinematography without sacrificing page load speed on mobile devices.",
+      solution:
+        "Designed an editorial, royal-themed visual experience with optimized WebP galleries, categorized event narratives, and direct booking consultation CTAs tailored for couples planning premium weddings.",
+      impact:
+        "Delivered a fast, cinema-grade showcase that elevates perceived studio value and converts portfolio viewers into pre-wedding and wedding shoot inquiries.",
+    },
   },
   {
-    title: "Amazon Clone",
-    category: "E-commerce Platform",
-    tools: "React, Node.js, Express, MongoDB",
-    image: "/images/whatsapp.png",
-    link: "https://github.com/karampreet-singh-09",
+    title: "Eternity Hostel KP3",
+    clientType: "Freelance Client • Student Hospitality & CRM",
+    category: "Luxury Hostel Booking Platform + Automated Google Sheets Backend",
+    tools: "React, Google Sheets CRM Automation, Real-Time Lead Sync, Responsive UI",
+    image: "https://eternity-hostel-6otk.vercel.app/two_seater_ac.png",
+    fallbackImage: "/images/Solidx.png",
+    link: "https://eternity-hostel-6otk.vercel.app",
+    secondaryLink: {
+      label: "Live Booking Sheet (CRM)",
+      url: "https://docs.google.com/spreadsheets/d/1PlM2-3EQdZnPcLNfa9B6XAk899IeGmq6fsa4oMZ9Dsk/edit?usp=sharing",
+    },
+    caseStudy: {
+      challenge:
+        "Located in Knowledge Park 3 (KP3), Greater Noida, Eternity Hostel needed both a modern room-discovery website for students/parents and a zero-maintenance backend for staff to track room inquiries in real time.",
+      solution:
+        "Built a luxury hostel booking portal showcasing AC/Non-AC multi-seater rooms and amenities, directly integrated with an automated Google Sheets CRM pipeline so every student booking submission is logged instantaneously.",
+      impact:
+        "Eliminated manual lead tracking for hostel management by syncing website inquiries straight into a live shared spreadsheet accessible on any device.",
+    },
   },
   {
-    title: "Expense Calculator",
-    category: "Financial Tool",
-    tools: "HTML, CSS, JavaScript",
-    image: "/images/broki.png",
-    link: "https://github.com/karampreet-singh-09",
+    title: "Wellship Clinic",
+    clientType: "Freelance Client • Multi-City Healthcare",
+    category: "Doctor-Supervised Aesthetic & Wellness Clinic Platform",
+    tools: "React, Healthcare UX, Consultation Funnel, Multi-Location SEO, Vercel",
+    image: "/images/bond.png",
+    fallbackImage: "/images/bond.png",
+    link: "https://wellship-clinic.vercel.app",
+    caseStudy: {
+      challenge:
+        "Wellship Clinic (operating across Delhi NCR & Ludhiana) needed a trustworthy, medically authoritative web presence to educate patients on advanced aesthetic and wellness programs and drive free consultation bookings.",
+      solution:
+        "Architected a clean, patient-first digital clinic featuring treatment breakdowns, doctor-supervised care highlights, location targeting for Delhi NCR and Ludhiana, and frictionless consultation scheduling.",
+      impact:
+        "Improved patient trust and simplified multi-city appointment acquisition through clear clinical positioning and high-visibility booking funnels.",
+    },
+  },
+  {
+    title: "Dr. Prakhar Shrivastava",
+    clientType: "Freelance Client • Medical Personal Brand",
+    category: "Clinical Dental Specialist Portfolio & Authority Hub",
+    tools: "React, Personal Branding UI, LinkedIn Integration, Appointment CTA",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCwOGKYW1SFw1YuCURWu5Dh_fO8JChtg4ub8eHWD7zxFoPXKPfR6tUQZxQ4T0Pq4hG3xSfhcaKATN4DjvTooZSqg7Iu-EGOlJNuqSKLIZ6zyfhGpoVy-m8lrLgJc0-s1wbH2lpzdq_iuhVXsVqiRn7lRVsy-vzjJ9nIPPc1XwNNyVyGbtKZFe5jnLIV6PhDWKobAp4EQS4kqbWOE0sLBCzWiO5G34LHM5826FU4zW0fpTblFJo1CogC_QLx5k1ztzzNJhvUCuMr4eOC",
+    fallbackImage: "/images/radix.png",
+    link: "https://dr-prakhar.vercel.app",
+    caseStudy: {
+      challenge:
+        "As a Clinical Dental Specialist, Dr. Prakhar Shrivastava needed a dedicated professional hub linked with his LinkedIn presence to showcase clinical credentials, certifications, and patient care philosophy.",
+      solution:
+        "Crafted a refined medical specialist portfolio highlighting clinical specializations, verified qualifications, patient testimonials, and direct LinkedIn & consultation connect pathways.",
+      impact:
+        "Strengthened professional authority online and provided patients and peers with a credible, single-click destination from LinkedIn.",
+    },
+  },
+  {
+    title: "MedN Riders",
+    clientType: "Freelance Client • Automotive & Custom Mods",
+    category: "Custom Motorcycle Modification & Visual Concept Platform",
+    tools: "React, Photo Upload Workflow, Custom Automotive UI, Interactive Showcase",
+    image: "https://medn-riders.vercel.app/neon_red_sports_bike.png",
+    fallbackImage: "/images/callhq.png",
+    link: "https://medn-riders.vercel.app",
+    caseStudy: {
+      challenge:
+        "Motorcycle enthusiasts struggle to visualize how custom body kits, wraps, and performance aesthetics will look on their own bike before committing to a build.",
+      solution:
+        "Developed MedN Riders with a bold, high-contrast automotive aesthetic where riders can explore custom bike builds and upload a photo of their motorcycle to request tailored modification concepts.",
+      impact:
+        "Created an engaging interactive lead magnet for custom bike builders that turns rider curiosity into qualified modification requests.",
+    },
+  },
+  {
+    title: "Manjeet Saini Hospital",
+    clientType: "Freelance Client • Hospital Booking System",
+    category: "Patient Appointment & Department Scheduling Portal",
+    tools: "HTML5, CSS3, Vanilla JavaScript, Fast Mobile Booking Flow, Vercel",
+    image: "https://msh-vanilla-booking.vercel.app/doctor.png",
+    fallbackImage: "/images/broki.png",
+    link: "https://msh-vanilla-booking.vercel.app",
+    caseStudy: {
+      challenge:
+        "Patients visiting Manjeet Saini Hospital needed a lightweight, zero-lag appointment booking system that loads instantly even on slow mobile networks.",
+      solution:
+        "Engineered a streamlined, dependency-free Vanilla JS hospital booking application enabling patients to select departments, choose doctors, and book appointment slots in seconds.",
+      impact:
+        "Delivered near-instant load times on mobile devices and simplified front-desk patient scheduling.",
+    },
   },
 ];
 
@@ -81,9 +196,31 @@ const Work = () => {
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
+        <div className="work-header">
+          <h2>
+            Client <span>Work</span> &amp; Case Studies
+          </h2>
+          <p className="work-subtitle">
+            Real-world websites, e-commerce stores, healthcare portals, and automated booking systems delivered for freelance clients.
+          </p>
+        </div>
+
+        {/* Quick Project Selector Pills */}
+        <div className="project-selector" role="tablist" aria-label="Client projects">
+          {projects.map((project, index) => (
+            <button
+              key={project.title}
+              className={`project-pill ${
+                index === currentIndex ? "project-pill-active" : ""
+              }`}
+              onClick={() => goToSlide(index)}
+              data-cursor="disable"
+            >
+              <span className="project-pill-num">0{index + 1}</span>
+              {project.title}
+            </button>
+          ))}
+        </div>
 
         <div className="carousel-wrapper">
           {/* Navigation Arrows */}
@@ -117,26 +254,67 @@ const Work = () => {
               }}
             >
               {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
+                <div className="carousel-slide" key={project.title}>
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">
                         <h3>0{index + 1}</h3>
                       </div>
                       <div className="carousel-details">
+                        <span className="client-badge">{project.clientType}</span>
                         <h4>{project.title}</h4>
-                        <p className="carousel-category">
-                          {project.category}
-                        </p>
+                        <p className="carousel-category">{project.category}</p>
+
+                        {/* Case Study Breakdown */}
+                        <div className="case-study-box">
+                          <div className="case-study-item">
+                            <span className="case-study-label">The Challenge</span>
+                            <p>{project.caseStudy.challenge}</p>
+                          </div>
+                          <div className="case-study-item">
+                            <span className="case-study-label">The Solution</span>
+                            <p>{project.caseStudy.solution}</p>
+                          </div>
+                          <div className="case-study-item">
+                            <span className="case-study-label">Client Impact</span>
+                            <p>{project.caseStudy.impact}</p>
+                          </div>
+                        </div>
+
                         <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
+                          <span className="tools-label">Tech Stack &amp; Deliverables</span>
                           <p>{project.tools}</p>
+                        </div>
+
+                        {/* Live Links */}
+                        <div className="project-actions">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="project-btn project-btn-primary"
+                            data-cursor="disable"
+                          >
+                            Visit Live Website <MdArrowOutward />
+                          </a>
+                          {project.secondaryLink && (
+                            <a
+                              href={project.secondaryLink.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="project-btn project-btn-secondary"
+                              data-cursor="disable"
+                            >
+                              {project.secondaryLink.label} <MdArrowOutward />
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
                       <WorkImage
                         image={project.image}
+                        fallbackImage={project.fallbackImage}
                         alt={project.title}
                         link={project.link}
                       />
@@ -149,14 +327,14 @@ const Work = () => {
 
           {/* Dot Indicators */}
           <div className="carousel-dots">
-            {projects.map((_, index) => (
+            {projects.map((project, index) => (
               <button
-                key={index}
+                key={project.title}
                 className={`carousel-dot ${
                   index === currentIndex ? "carousel-dot-active" : ""
                 }`}
                 onClick={() => goToSlide(index)}
-                aria-label={`Go to project ${index + 1}`}
+                aria-label={`Go to ${project.title}`}
                 data-cursor="disable"
               />
             ))}

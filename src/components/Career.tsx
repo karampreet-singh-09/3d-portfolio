@@ -5,14 +5,27 @@ const Career = () => {
     <div className="career-section section-container">
       <div className="career-container">
         <h2>
-          Educational Background <span>&</span>
-          <br /> Courses
+          Experience <span>&amp;</span>
+          <br /> Education
         </h2>
         <div className="career-info">
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
-          
+
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>FREELANCE FULL-STACK &amp; WEB DEVELOPER</h4>
+                <h5>Independent Client Projects (7+ Live Deployments)</h5>
+              </div>
+              <h3>NOW</h3>
+            </div>
+            <p>
+              Designing, engineering, and deploying production websites, e-commerce platforms, hospital/clinic booking portals, and Google Sheets CRM automations for clients including Anchor Customs, Sahu Creations, Eternity Hostel KP3, Wellship Clinic, Dr. Prakhar Shrivastava, MedN Riders, and Manjeet Saini Hospital.
+            </p>
+          </div>
+
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
@@ -29,39 +42,13 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>12th Grade</h4>
-                <h5>Red Rose Senior Secondary School</h5>
-              </div>
-              <h3>2021–2023</h3>
-            </div>
-            <p>
-              Physics, Chemistry, Mathematics, Informatics Practices, English. Central Board of Secondary Education (CBSE), Lucknow.
-            </p>
-          </div>
-
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>10th Grade</h4>
-                <h5>Cambridge School</h5>
-              </div>
-              <h3>2020–2021</h3>
-            </div>
-            <p>
-              10th with Standard Mathematics. Central Board of Secondary Education (CBSE), Lucknow.
-            </p>
-          </div>
-
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
                 <h4>Intern</h4>
                 <h5>CodSoft</h5>
               </div>
               <h3>INTERNSHIP</h3>
             </div>
             <p>
-              This opportunity marks a significant step in my journey of learning and growing in the tech industry. At CodSoft, I'll be working on web development and I'm looking forward to applying my skills in real-world projects while gaining valuable industry experience.
+              Applied full-stack web development skills on real-world projects, building responsive interfaces and production web applications.
             </p>
           </div>
 
@@ -74,7 +61,20 @@ const Career = () => {
               <h3>COURSE</h3>
             </div>
             <p>
-              Successfully completed the Sigma Batch at Apna College, an immersive 8.5-month program that combined Data Structures & Algorithms (4 months in Java) with comprehensive MERN stack web development (4.5 months). Experienced hands-on projects and industry professional training.
+              Completed the intensive 8.5-month Sigma Batch program combining Data Structures &amp; Algorithms in Java with full-stack MERN web development and hands-on industry projects.
+            </p>
+          </div>
+
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>12th &amp; 10th Grade (CBSE)</h4>
+                <h5>Red Rose Sr. Sec. School &amp; Cambridge School, Lucknow</h5>
+              </div>
+              <h3>2020–2023</h3>
+            </div>
+            <p>
+              Completed Senior Secondary (PCM with Informatics Practices, 2021–2023) and Secondary Education (2020–2021) under CBSE Board, Lucknow.
             </p>
           </div>
         </div>

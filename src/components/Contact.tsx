@@ -5,10 +5,18 @@ const Contact = () => {
   return (
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
-        <h3>Contact</h3>
+        <h3>Hire Me / Start a Project</h3>
         <div className="contact-flex">
           <div className="contact-box">
-            <h4>Connect</h4>
+            <h4>Freelance Inquiries &amp; Connect</h4>
+            <p>
+              <a
+                href="mailto:karampreets090@gmail.com"
+                data-cursor="disable"
+              >
+                Email — karampreets090@gmail.com
+              </a>
+            </p>
             <p>
               <a
                 href="https://www.linkedin.com/in/karampreet-singh-a8b108266"
@@ -26,7 +34,7 @@ const Contact = () => {
             </p>
           </div>
           <div className="contact-box">
-            <h4>Social</h4>
+            <h4>Social &amp; Live Work</h4>
             <a
               href="https://github.com/karampreet-singh-09"
               target="_blank"
@@ -45,10 +53,19 @@ const Contact = () => {
             >
               LinkedIn <MdArrowOutward />
             </a>
+            <a
+              href="https://anchorcustoms.in"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              Anchor Customs <MdArrowOutward />
+            </a>
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Karampreet Singh</span>
+              Available for <span>Freelance Projects</span> <br /> Designed &amp; Built by <span>Karampreet Singh</span>
             </h2>
             <h5>
               <MdCopyright /> 2026

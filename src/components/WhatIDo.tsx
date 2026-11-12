@@ -93,20 +93,19 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI & AUTOMATION</h3>
-              <h4>Workflow Intelligence for Organizations</h4>
+              <h3>FREELANCE WEB &amp; E-COMMERCE</h3>
+              <h4>High-Converting Websites for Brands &amp; Clinics</h4>
               <p>
-                AI specialist helping organizations automate workflows—internal ops
-                and customer-facing—so teams ship faster with less manual work.
+                I design and build custom e-commerce stores, clinic/hospital booking portals, luxury portfolios, and brand websites that load fast and convert visitors into customers.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Services &amp; Stack</h5>
               <div className="what-content-flex">
-                <div className="what-tags">LLMs &amp; agents</div>
-                <div className="what-tags">Workflow design</div>
-                <div className="what-tags">RAG &amp; retrieval</div>
-                <div className="what-tags">Evals &amp; guardrails</div>
-                <div className="what-tags">Integrations</div>
-                <div className="what-tags">Product strategy</div>
+                <div className="what-tags">Custom E-Commerce</div>
+                <div className="what-tags">React &amp; Next.js</div>
+                <div className="what-tags">Clinic &amp; Hospital Portals</div>
+                <div className="what-tags">Luxury Portfolios</div>
+                <div className="what-tags">Mobile-First UI/UX</div>
+                <div className="what-tags">Custom Domains &amp; SEO</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -130,21 +129,19 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BUILD &amp; SCALE</h3>
-              <h4>Shipping AI in Production</h4>
+              <h3>AI, BOOKING &amp; AUTOMATION</h3>
+              <h4>Smart Backend Systems &amp; Live CRM Pipelines</h4>
               <p>
-                I build the systems behind it: APIs, data, voice/real-time, and
-                full-stack products—production-ready, not slide decks.
+                From real-time Google Sheets booking CRMs to full-stack Node.js/MongoDB backends and AI-powered workflows, I automate lead capture and operations so businesses scale effortlessly.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; Tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">REST &amp; real-time APIs</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Cloud &amp; infra</div>
+                <div className="what-tags">Node.js &amp; Express</div>
+                <div className="what-tags">Google Sheets CRM Sync</div>
+                <div className="what-tags">Booking Engines</div>
+                <div className="what-tags">Python &amp; AI/ML</div>
+                <div className="what-tags">MongoDB &amp; SQL</div>
+                <div className="what-tags">Vercel Cloud</div>
               </div>
               <div className="what-arrow"></div>
             </div>
