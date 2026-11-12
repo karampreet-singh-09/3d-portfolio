@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
 interface Props {
@@ -13,6 +13,10 @@ const WorkImage = (props: Props) => {
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
   const [imgSrc, setImgSrc] = useState(props.image);
+
+  useEffect(() => {
+    setImgSrc(props.image);
+  }, [props.image]);
 
   const handleMouseEnter = async () => {
     if (props.video) {
@@ -43,6 +47,8 @@ const WorkImage = (props: Props) => {
         <img
           src={imgSrc}
           alt={props.alt}
+          loading="lazy"
+          decoding="async"
           onError={() => {
             if (props.fallbackImage && imgSrc !== props.fallbackImage) {
               setImgSrc(props.fallbackImage);

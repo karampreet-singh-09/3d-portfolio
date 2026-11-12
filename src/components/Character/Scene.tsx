@@ -26,6 +26,7 @@ const Scene = () => {
     let isCancelled = false;
     let animFrameId: number;
     let loadedCharacter: THREE.Object3D | null = null;
+    const isMobile = window.innerWidth <= 768;
 
     // Remove any stale canvas from previous mount/HMR
     containerEl.querySelectorAll("canvas").forEach((c) => c.remove());
@@ -37,10 +38,13 @@ const Scene = () => {
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
+      powerPreference: "high-performance",
     });
     renderer.setSize(container.width, container.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(
+      Math.min(window.devicePixelRatio, isMobile ? 1.4 : 2)
+    );
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1;
     containerEl.appendChild(renderer.domElement);
@@ -87,7 +91,7 @@ const Scene = () => {
           if (isCancelled) return;
           light.turnOnLights();
           animations.startIntro();
-        }, 2500);
+        }, 450);
       });
       window.addEventListener("resize", onResize);
     });
