@@ -5,6 +5,7 @@ import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
 
 interface ProjectItem {
   title: string;
+  domain: string;
   clientType: string;
   category: string;
   tools: string;
@@ -25,10 +26,11 @@ interface ProjectItem {
 const projects: ProjectItem[] = [
   {
     title: "Anchor Customs",
+    domain: "anchorcustoms.in",
     clientType: "Freelance Client • Custom E-Commerce",
     category: "Bespoke Personalized Gifts & E-Commerce Storefront",
     tools: "React, Node.js, Custom Product Configurator, E-Commerce Checkout, Vercel",
-    image: "/images/sapphire.png",
+    image: "/images/anchor-customs.png",
     fallbackImage: "/images/sapphire.png",
     link: "https://anchorcustoms.in",
     caseStudy: {
@@ -42,10 +44,11 @@ const projects: ProjectItem[] = [
   },
   {
     title: "Sahu Photography",
+    domain: "sahu-creations.vercel.app",
     clientType: "Freelance Client • Luxury Wedding Studio",
     category: "Royal Wedding Photography & Cinematic Films Portfolio",
     tools: "React, Responsive Media Gallery, Smooth Animations, Lead Capture, Vercel",
-    image: "https://sahu-creations.vercel.app/images/wedding_11_1780780846106.webp",
+    image: "/images/sahu-photography.png",
     fallbackImage: "/images/Maxlife.png",
     link: "https://sahu-creations.vercel.app",
     caseStudy: {
@@ -59,10 +62,11 @@ const projects: ProjectItem[] = [
   },
   {
     title: "Eternity Hostel KP3",
+    domain: "eternity-hostel-6otk.vercel.app",
     clientType: "Freelance Client • Student Hospitality & CRM",
     category: "Luxury Hostel Booking Platform + Automated Google Sheets Backend",
     tools: "React, Google Sheets CRM Automation, Real-Time Lead Sync, Responsive UI",
-    image: "https://eternity-hostel-6otk.vercel.app/two_seater_ac.png",
+    image: "/images/eternity-hostel.png",
     fallbackImage: "/images/Solidx.png",
     link: "https://eternity-hostel-6otk.vercel.app",
     secondaryLink: {
@@ -80,10 +84,11 @@ const projects: ProjectItem[] = [
   },
   {
     title: "Wellship Clinic",
+    domain: "wellship-clinic.vercel.app",
     clientType: "Freelance Client • Multi-City Healthcare",
     category: "Doctor-Supervised Aesthetic & Wellness Clinic Platform",
     tools: "React, Healthcare UX, Consultation Funnel, Multi-Location SEO, Vercel",
-    image: "/images/bond.png",
+    image: "/images/wellship-clinic.png",
     fallbackImage: "/images/bond.png",
     link: "https://wellship-clinic.vercel.app",
     caseStudy: {
@@ -97,11 +102,11 @@ const projects: ProjectItem[] = [
   },
   {
     title: "Dr. Prakhar Shrivastava",
+    domain: "dr-prakhar.vercel.app",
     clientType: "Freelance Client • Medical Personal Brand",
     category: "Clinical Dental Specialist Portfolio & Authority Hub",
     tools: "React, Personal Branding UI, LinkedIn Integration, Appointment CTA",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCwOGKYW1SFw1YuCURWu5Dh_fO8JChtg4ub8eHWD7zxFoPXKPfR6tUQZxQ4T0Pq4hG3xSfhcaKATN4DjvTooZSqg7Iu-EGOlJNuqSKLIZ6zyfhGpoVy-m8lrLgJc0-s1wbH2lpzdq_iuhVXsVqiRn7lRVsy-vzjJ9nIPPc1XwNNyVyGbtKZFe5jnLIV6PhDWKobAp4EQS4kqbWOE0sLBCzWiO5G34LHM5826FU4zW0fpTblFJo1CogC_QLx5k1ztzzNJhvUCuMr4eOC",
+    image: "/images/dr-prakhar.png",
     fallbackImage: "/images/radix.png",
     link: "https://dr-prakhar.vercel.app",
     caseStudy: {
@@ -115,10 +120,11 @@ const projects: ProjectItem[] = [
   },
   {
     title: "MedN Riders",
+    domain: "medn-riders.vercel.app",
     clientType: "Freelance Client • Automotive & Custom Mods",
     category: "Custom Motorcycle Modification & Visual Concept Platform",
     tools: "React, Photo Upload Workflow, Custom Automotive UI, Interactive Showcase",
-    image: "https://medn-riders.vercel.app/neon_red_sports_bike.png",
+    image: "/images/medn-riders.png",
     fallbackImage: "/images/callhq.png",
     link: "https://medn-riders.vercel.app",
     caseStudy: {
@@ -132,10 +138,11 @@ const projects: ProjectItem[] = [
   },
   {
     title: "Manjeet Saini Hospital",
+    domain: "msh-vanilla-booking.vercel.app",
     clientType: "Freelance Client • Hospital Booking System",
     category: "Patient Appointment & Department Scheduling Portal",
     tools: "HTML5, CSS3, Vanilla JavaScript, Fast Mobile Booking Flow, Vercel",
-    image: "https://msh-vanilla-booking.vercel.app/doctor.png",
+    image: "/images/manjeet-hospital.png",
     fallbackImage: "/images/broki.png",
     link: "https://msh-vanilla-booking.vercel.app",
     caseStudy: {
@@ -256,6 +263,35 @@ const Work = () => {
               {projects.map((project, index) => (
                 <div className="carousel-slide" key={project.title}>
                   <div className="carousel-content">
+                    {/* Website Preview Photo ABOVE Project Name */}
+                    <div className="carousel-image-wrapper">
+                      <div className="browser-mockup">
+                        <div className="browser-mockup-bar">
+                          <div className="browser-dots">
+                            <span className="browser-dot dot-red" />
+                            <span className="browser-dot dot-yellow" />
+                            <span className="browser-dot dot-green" />
+                          </div>
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="browser-url"
+                            data-cursor="disable"
+                          >
+                            https://{project.domain} <MdArrowOutward />
+                          </a>
+                        </div>
+                        <WorkImage
+                          image={project.image}
+                          fallbackImage={project.fallbackImage}
+                          alt={`${project.title} website preview`}
+                          link={project.link}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Project Name, Case Study & Links Below Photo */}
                     <div className="carousel-info">
                       <div className="carousel-number">
                         <h3>0{index + 1}</h3>
@@ -310,14 +346,6 @@ const Work = () => {
                           )}
                         </div>
                       </div>
-                    </div>
-                    <div className="carousel-image-wrapper">
-                      <WorkImage
-                        image={project.image}
-                        fallbackImage={project.fallbackImage}
-                        alt={project.title}
-                        link={project.link}
-                      />
                     </div>
                   </div>
                 </div>

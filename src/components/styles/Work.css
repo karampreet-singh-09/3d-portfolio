@@ -100,26 +100,94 @@
   min-width: 100%;
   flex-shrink: 0;
   box-sizing: border-box;
-  padding: clamp(20px, 3.5vw, 48px) 0;
+  padding: clamp(20px, 3.5vw, 44px) 0;
 }
 
 .carousel-content {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: clamp(18px, 4vw, 56px);
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(18px, 2.5vw, 32px);
   width: 100%;
 }
 
+/* ── Browser Mockup Above Project Name ── */
+.carousel-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.browser-mockup {
+  width: 100%;
+  max-width: 860px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111622;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+.browser-mockup-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.browser-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  background: #ff5f56;
+}
+
+.dot-yellow {
+  background: #ffbd2e;
+}
+
+.dot-green {
+  background: #27c93f;
+}
+
+.browser-url {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: clamp(11px, 0.9vw, 13px);
+  color: #5eead4;
+  background: rgba(94, 234, 212, 0.08);
+  border: 1px solid rgba(94, 234, 212, 0.25);
+  padding: 3px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
 .carousel-info {
-  flex: 1.25;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
   display: flex;
   gap: clamp(12px, 2vw, 28px);
   align-items: flex-start;
 }
 
 .carousel-number h3 {
-  font-size: clamp(22px, 4vw, 58px);
+  font-size: clamp(24px, 4vw, 56px);
   line-height: 1;
   margin: 0;
   font-weight: 600;
@@ -127,6 +195,7 @@
 }
 
 .carousel-details {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: clamp(4px, 0.65vw, 10px);
@@ -147,7 +216,7 @@
 }
 
 .carousel-details h4 {
-  font-size: clamp(16px, 2.2vw, 32px);
+  font-size: clamp(18px, 2.4vw, 32px);
   font-weight: 600;
   margin: 2px 0 0;
 }
@@ -162,10 +231,10 @@
 /* ── Case Study Block ── */
 .case-study-box {
   margin-top: clamp(8px, 1.1vw, 14px);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: clamp(10px, 1.3vw, 16px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: clamp(12px, 1.4vw, 18px);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -174,7 +243,7 @@
 .case-study-item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .case-study-label {
@@ -187,7 +256,7 @@
 
 .case-study-item p {
   margin: 0;
-  font-size: clamp(11px, 0.98vw, 14px);
+  font-size: clamp(11px, 0.95vw, 13.5px);
   line-height: 1.5;
   color: #d3cfd7;
   font-weight: 300;
@@ -254,13 +323,6 @@
   border-color: var(--accentColor);
   color: var(--accentColor);
   background: rgba(94, 234, 212, 0.08);
-}
-
-.carousel-image-wrapper {
-  flex: 0.95;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ── Navigation Arrows ── */
@@ -339,9 +401,8 @@
 .work-image-in {
   position: relative;
   display: block;
-  border-radius: 12px;
+  width: 100%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .work-link {
@@ -381,18 +442,18 @@
 }
 
 .work-image img {
-  max-width: 100%;
-  max-height: clamp(180px, 28vw, 420px);
+  width: 100%;
+  max-height: clamp(200px, 32vw, 440px);
   object-fit: cover;
-  border-radius: 10px;
+  object-position: top center;
   display: block;
 }
 
 /* ── Responsive Stack on Mobile / Tablet ── */
 @media only screen and (max-width: 900px) {
-  .carousel-content {
-    flex-direction: column-reverse;
-    align-items: stretch;
+  .case-study-box {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .carousel-info {
@@ -400,7 +461,7 @@
   }
 
   .work-image img {
-    max-height: 240px;
+    max-height: 220px;
     width: 100%;
   }
 }
