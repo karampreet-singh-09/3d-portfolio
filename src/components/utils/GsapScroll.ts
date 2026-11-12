@@ -78,6 +78,8 @@ export function setCharTimeline(
     gsap.set(".character-model", {
       x: "0%",
       y: "0%",
+      xPercent: 0,
+      yPercent: 0,
       "--charMaskStop1": stop1,
       "--charMaskStop2": stop2,
     });
